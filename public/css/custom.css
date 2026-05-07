@@ -1,0 +1,161 @@
+/* Custom CSS for Weather and Farming Advisory System */
+
+:root {
+    --primary: #2ecc71;
+    --primary-dark: #27ae60;
+    --accent: #f1c40f;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+body {
+    background: linear-gradient(135deg, #1abc9c, #2980b9);
+    background-attachment: fixed;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+h2.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    box-shadow: 0 0 0 3px var(--accent);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+/* Weather Widget */
+.weather-widget {
+    text-align: center;
+}
+
+.weather-icon {
+    font-size: 4rem;
+    margin: 20px 0;
+}
+
+.temp {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.weather-desc {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    opacity: 0.9;
+}
+
+/* Advisory Widget */
+.advisory-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.advisory-box h3 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.alert-rain {
+    background: rgba(231, 76, 60, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-normal {
+    background: rgba(46, 204, 113, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+}
