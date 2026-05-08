@@ -23,17 +23,16 @@ RUN a2enmod rewrite
 # Working directory
 WORKDIR /var/www/html
 
-# Copy app (vendor/ already committed)
+# Copy app files
 COPY . .
+
+# Reinstall composer dependencies cleanly inside Docker
+# (overrides committed vendor to ensure correct autoloader)
+RUN composer install --optimize-autoloader --no-interaction --no-progress
 
 # Set permissions
 RUN chown -R www-data:www-data storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
-
-# Cache Laravel config for production
-RUN php artisan config:cache --env=production || true
-RUN php artisan route:cache || true
-RUN php artisan view:cache || true
 
 EXPOSE 80
 
